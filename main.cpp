@@ -69,6 +69,8 @@ int main() {
         default: cout << "No entraste A, B, o C!\n";
     }
 
+    cout << endl;
+
     // hacer segundo menu
 
     char sec_choice;
@@ -89,7 +91,9 @@ int main() {
                 
         default: "No entraste A o B!\n";
     }
-         
+    
+    cout << endl;
+
     // input validation
 
     // volúmenes opciones
@@ -98,9 +102,13 @@ int main() {
         double rad, c_height;
         cout << "Entre el radio del cilindro: ";
         cin >> rad;
+
+        cout << endl;
         
         cout << "Entre la altura del cilindro: ";
         cin >> c_height;
+
+        cout << endl;
         
         cout << "El volumen del cilindro es: " << setprecision (3) << volume (rad, c_height);
     }
@@ -109,6 +117,9 @@ int main() {
         cout << "Entre el radio de la esfera: ";
         double s_rad;
         cin >> s_rad;
+
+        cout << endl;
+
         cout << "El volumen de la esfera es: " << setprecision (3) << volume (s_rad);
     }
     
@@ -116,12 +127,18 @@ int main() {
         double width, length, height;
         cout << "Entre el largo: ";
         cin >> length;
+
+        cout << endl;
     
         cout << "Entre el ancho: ";
         cin >> width;
+
+        cout << endl;
     
         cout << "Entre la altura: ";
         cin >> height;
+
+        cout << endl;
     
         cout << "El volumen del prisma rectangular es: " << setprecision (3) << volume (width, length, height);
     }
@@ -132,9 +149,13 @@ int main() {
     
         cout << "Entre el radio del cilindro: ";
         cin >> c_rad;
+
+        cout << endl;
     
         cout << "Entre la altura del cilindro: ";
         cin >> height;
+
+        cout << endl;
     
         cout << "El área del cilindro es: " << setprecision (3) << area (c_rad, height);
     }
@@ -144,6 +165,8 @@ int main() {
     
         cout << "Entre el radio de la esfera: ";
         cin >> s_rad;
+
+        cout << endl;
     
         cout << "El área de la esfera es: " << setprecision (3) << area (s_rad);
         
@@ -154,12 +177,18 @@ int main() {
     
         cout << "Entre el largo: ";
         cin >> length;
+
+        cout << endl;
         
         cout << "Entre el ancho: ";
         cin >> width;
+
+        cout << endl;
         
         cout << "Entre la altura: ";
         cin >> height;
+
+        cout << endl;
         
         cout << "El área del prisma rectangular es: " << setprecision (3) << area (length, width, height);
     }
