@@ -1,6 +1,5 @@
-// Michelle A. Santiago 
-// Figuras 3D
-
+// Michelle A. Santiago
+// Colaboraciones: 
 
 #include <iostream>
 #include <iomanip>
@@ -10,34 +9,25 @@ using namespace std;
 const double pi = 3.14159265358979323846; 
 
 
-// prototipos de funciones de volúmenes 
+// prototipos de funciones de volúmenes y areas
 
-// cilindro
-
-double volume (double, double);
-
-// esfera
-
-double volume (double);
-
-// prisma rectangular
-
-double volume (double, double, double);
+double volume (double, double); // cilindro
+double volume (double); // esfera
+double volume (double, double, double); // prisma rectangular
 
 
 // prototipo de funciones de área 
 
-// cilindro
+double area (double, double); // cilindro
+double area (double); // esfera 
+double area (double, double, double); // prisma rectangular
 
-double area (double, double);
+// prototipo de funciones de buscar datos
 
-// esfera 
-
-double area (double);
-
-// prisma rectangular
-
-double area (double, double, double);
+double getrad(); // radio
+double getwidth(); // ancho
+double getheight(); // altura 
+double getlength(); // largo
 
 
 int main() {
@@ -46,25 +36,36 @@ int main() {
 
     cout << "Este programa calcula el volumen y el área de la superficie de tres figuras." << endl;
 
-    // hacer primer menu
+    int option;
 
-    char first_choice;
+    // first menu
+
+    char figure_choice;
     
-    cout << "Escoja una figura: \n";
-    cout << " a. Cilindro\n b. Esfera\n c. Prisma rectangular\n";
-    cout << "Selección: ";
-    cin >> first_choice;
+    do {
+        cout << "Escoja una figura: \n";
+        cout << " a. Cilindro\n b. Esfera\n c. Prisma rectangular\n";
+        cout << "Selección: ";
+        cin >> figure_choice;
+        
+        // cambiar el input a ascii 
+        
+        
+    } while ((figure_choice >= 65 && figure_choice <= 67) || (figure_choice >= 97 && figure_choice <= 99));
     
-    switch (first_choice)
+    switch (figure_choice)
     {
         case 'a':
         case 'A': cout << "Escogió el cilindro.\n";
+                option = 1;
                 break;
         case 'b':
         case 'B': cout << "Escogió la esfera.\n";
+                option = 2;
                 break;
         case 'c':
         case 'C': cout << "Escogió el prisma rectangular.\n";
+                option = 3;
                 break;
         default: cout << "No entraste A, B, o C!\n";
     }
@@ -73,147 +74,128 @@ int main() {
 
     // hacer segundo menu
 
-    char sec_choice;
+    char measure_choice;
     
     cout << "Escoja entre los siguientes opciones: \n";
     cout << " a. Volumen\n b. Área de la superficie\n";
     cout << "Selección: ";
-    cin >> sec_choice;
+    cin >> measure_choice;
     
-    switch (sec_choice) {
+    switch (measure_choice) {
         
         case 'a':
         case 'A': cout << "Escogió calcular el volumen.\n";
                 break;
         case 'b':
         case 'B': cout << "Escogió calcular el área de la superficie.\n";
+                option += 3;
                 break;
                 
         default: "No entraste A o B!\n";
     }
     
+    switch (option) {
+        
+        case 1: 
+            {
+                double radio = getrad();
+                double altura = getheight();
+                double vol_1;
+                vol_1 = volume (radio, altura);
+                cout << "El volumen del cilindro es: " << fixed << setprecision (2) << vol_1;
+                cout << endl;
+                break;
+            }
+                
+        case 2: 
+            {
+                double radio_2 = getrad();
+                double vol_2;
+                vol_2 = volume (radio_2);
+                cout << "El volumen de la esfera es: " << fixed << setprecision (2) << vol_2;
+                cout << endl;
+                break;
+            }
+                
+        case 3: 
+            {
+                 double width_3 = getwidth();
+                double length_3 = getlength();
+                double height_3 = getheight();
+                double vol_3;
+                vol_3 = volume (width_3, length_3, height_3);
+                cout << "El volumen del prisma rectangular es: " << fixed << setprecision(2) << vol_3;
+                cout << endl;
+                break;
+            }
+                
+        case 4: 
+            {
+                double radio_4 = getrad();
+                double altura_4 = getheight();
+                double ar_4;
+                ar_4 = area (radio_4, altura_4); 
+                cout << "El área del cilindro es: " << fixed << setprecision(2) << ar_4;
+                cout << endl;
+                break;
+            }
+        
+        case 5: 
+            {
+                double radio_5 = getrad();
+                double ar_5;
+                ar_5 = area (radio_5);
+                cout << "El área de la esfera es: " << fixed << setprecision (2) << ar_5;
+                cout << endl;
+                break;
+            }
+                
+        case 6:
+            {
+                double largo_6 = getlength();
+                double ancho_6 = getwidth();
+                double altura_6 = getheight();
+                double ar_6;
+                ar_6 = area (largo_6, ancho_6, altura_6);
+                cout << "El área del prisma rectangular es: " << fixed << setprecision (2) << ar_6;
+                cout << endl;
+                break;
+            }
+                
+        
+    }
+    
     cout << endl;
-
-    // input validation
-
-    // volúmenes opciones
-
-    if ((first_choice = 'A' || first_choice == 'a') && (sec_choice == 'A' || sec_choice == 'a')) {
-        double rad, c_height;
-        cout << "Entre el radio del cilindro: ";
-        cin >> rad;
-
-        cout << endl;
-        
-        cout << "Entre la altura del cilindro: ";
-        cin >> c_height;
-
-        cout << endl;
-        
-        cout << "El volumen del cilindro es: " << setprecision (3) << volume (rad, c_height);
-        cout << endl;
-
-        exit (0);
-    }
- 
-    if ((first_choice == 'B'|| first_choice == 'b') && (sec_choice == 'A' || sec_choice == 'a')) {
-        cout << "Entre el radio de la esfera: ";
-        double s_rad;
-        cin >> s_rad;
-
-        cout << endl;
-
-        cout << "El volumen de la esfera es: " << setprecision (3) << volume (s_rad);
-        cout << endl;
-
-        exit(0);
-    }
     
-    if ((first_choice = 'C' || first_choice == 'c') && (sec_choice == 'A' || sec_choice == 'a')) {
-        double width, length, height;
-        cout << "Entre el largo: ";
-        cin >> length;
-
-        cout << endl;
-    
-        cout << "Entre el ancho: ";
-        cin >> width;
-
-        cout << endl;
-    
-        cout << "Entre la altura: ";
-        cin >> height;
-
-        cout << endl;
-    
-        cout << "El volumen del prisma rectangular es: " << setprecision (3) << volume (width, length, height);
-        cout << endl;
-
-        exit(0);
-    }
-
-
-    if ((first_choice = 'A' || first_choice == 'a') && (sec_choice == 'B' || sec_choice == 'b')) {
-        double c_rad, height;
-    
-        cout << "Entre el radio del cilindro: ";
-        cin >> c_rad;
-
-        cout << endl;
-    
-        cout << "Entre la altura del cilindro: ";
-        cin >> height;
-
-        cout << endl;
-    
-        cout << "El área del cilindro es: " << setprecision (3) << area (c_rad, height);
-
-        cout << endl;
-
-        exit (0);
-    }
-
-    if ((first_choice = 'B' || first_choice == 'b') && (sec_choice == 'B' || sec_choice == 'b')) {
-        double s_rad;
-    
-        cout << "Entre el radio de la esfera: ";
-        cin >> s_rad;
-
-        cout << endl;
-    
-        cout << "El área de la esfera es: " << setprecision (3) << area (s_rad);
-
-        cout << endl;
-
-        exit(0);
-    }
-
-    if ((first_choice = 'C' || first_choice == 'c') && (sec_choice == 'B' || sec_choice == 'b')) {
-        double length, width, height;
-    
-        cout << "Entre el largo: ";
-        cin >> length;
-
-        cout << endl;
-        
-        cout << "Entre el ancho: ";
-        cin >> width;
-
-        cout << endl;
-        
-        cout << "Entre la altura: ";
-        cin >> height;
-
-        cout << endl;
-        
-        cout << "El área del prisma rectangular es: " << setprecision (3) << area (length, width, height);
-
-        cout << endl;
-
-        exit (0);
-    }
-
     return 0;
+}
+
+double getrad() {
+    cout << "Entre el radio: ";
+    double rad;
+    cin >> rad;
+    return rad;
+}
+
+double getwidth() {
+    cout << "Entre el ancho: ";
+    double width;
+    cin >> width;
+    return width;
+}
+
+double getheight() {
+    cout << "Entre la altura: ";
+    double height;
+    cin >> height;
+    return height;
+}
+
+double getlength() {
+    cout << "Entre el largo: ";
+    double length;
+    cin >> length;
+    return length;
 }
 
 // funciones 
@@ -232,7 +214,7 @@ double volume (double rad, double c_height) {
 
 double volume (double s_rad) {
     double vol;
-    vol = (1.33333333333) * pi * (pow (s_rad, 3));
+    vol = (4.0/3.0) * pi * (pow (s_rad, 3));
     return vol;
 }
 
@@ -252,7 +234,7 @@ double volume (double width, double length, double height) {
 
 double area (double c_rad, double height) {
     double ar;
-    ar = (2.0 * pi * c_rad * height) + (2 * pi * (pow (c_rad, 2)));
+    ar = (2.0 * pi * c_rad * height) + (2.0 * pi * (pow (c_rad, 2)));
     return ar;
 }
 
@@ -260,7 +242,7 @@ double area (double c_rad, double height) {
 
 double area (double s_rad) {
     double ar;
-    ar = (4.0 * pi * (pow (s_rad, 2)));
+    ar = 4.0 * pi * (pow (s_rad, 2));
     return ar;
 }
 
