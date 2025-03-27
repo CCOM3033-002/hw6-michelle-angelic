@@ -44,7 +44,7 @@ int main() {
 
     // desplegar propósito del código
 
-    cout << "Este programa calcula el volumen y el área de la supercicie de tres figuras." << endl;
+    cout << "Este programa calcula el volumen y el área de la superficie de tres figuras." << endl;
 
     // hacer primer menu
 
@@ -111,6 +111,7 @@ int main() {
         cout << endl;
         
         cout << "El volumen del cilindro es: " << setprecision (3) << volume (rad, c_height);
+        cout << endl;
 
         exit (0);
     }
@@ -123,6 +124,7 @@ int main() {
         cout << endl;
 
         cout << "El volumen de la esfera es: " << setprecision (3) << volume (s_rad);
+        cout << endl;
 
         exit(0);
     }
@@ -145,6 +147,7 @@ int main() {
         cout << endl;
     
         cout << "El volumen del prisma rectangular es: " << setprecision (3) << volume (width, length, height);
+        cout << endl;
 
         exit(0);
     }
@@ -165,6 +168,8 @@ int main() {
     
         cout << "El área del cilindro es: " << setprecision (3) << area (c_rad, height);
 
+        cout << endl;
+
         exit (0);
     }
 
@@ -177,6 +182,8 @@ int main() {
         cout << endl;
     
         cout << "El área de la esfera es: " << setprecision (3) << area (s_rad);
+
+        cout << endl;
 
         exit(0);
     }
@@ -200,6 +207,8 @@ int main() {
         cout << endl;
         
         cout << "El área del prisma rectangular es: " << setprecision (3) << area (length, width, height);
+
+        cout << endl;
 
         exit (0);
     }
