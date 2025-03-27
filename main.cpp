@@ -32,6 +32,10 @@ double volume (double, double, double);
 
 double area (double, double);
 
+// esfera 
+
+double area (double);
+
 
 int main() {
 
@@ -133,7 +137,12 @@ int main() {
     }
 
     if ((first_choice = 'B' || first_choice == 'b') && (sec_choice == 'B' || sec_choice == 'b')) {
-
+        double s_rad;
+    
+        cout << "Entre el radio de la esfera: ";
+        cin >> s_rad;
+    
+        cout << "El área de la esfera es: " << setprecision (3) << area (s_rad);
         
     }
 
@@ -181,5 +190,11 @@ double area (double c_rad, double height) {
 }
 
 // esfera
+
+double area (double s_rad) {
+    double ar;
+    ar = (4.0 * pi * (pow (s_rad, 2)));
+    return ar;
+}
 
 // prisma rectangular 
