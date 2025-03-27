@@ -10,11 +10,28 @@ using namespace std;
 
 const double pi = 3.14159265358979323846; 
 
+
+// prototipos de funciones de volúmenes 
+
+// cilindro
+
 double volume (double, double);
+
+// esfera
 
 double volume (double);
 
+// prisma rectangular
+
 double volume (double, double, double);
+
+
+// prototipo de funciones de área 
+
+// cilindro
+
+double area (double, double);
+
 
 int main() {
 
@@ -68,7 +85,7 @@ int main() {
          
     // input validation
 
-    // take user input
+    // volúmenes opciones
 
     if ((first_choice = 'A' || first_choice == 'a') && (sec_choice == 'A' || sec_choice == 'a')) {
         double rad, c_height;
@@ -88,7 +105,7 @@ int main() {
         cout << "El volumen de la esfera es: " << setprecision (3) << volume (s_rad);
     }
     
-    if (first_choice = 'C' || first_choice == 'c') && (sec_choice == 'A' || sec_choice == 'a')) {
+    if ((first_choice = 'C' || first_choice == 'c') && (sec_choice == 'A' || sec_choice == 'a')) {
         double width, length, height;
         cout << "Entre el largo: ";
         cin >> length;
@@ -100,6 +117,24 @@ int main() {
         cin >> height;
     
         cout << "El volumen del prisma rectangular es: " << setprecision (3) << volume (width, length, height);
+    }
+
+
+    if ((first_choice = 'A' || first_choice == 'a') && (sec_choice == 'B' || sec_choice == 'b')) {
+        double c_rad, height;
+    
+        cout << "Entre el radio del cilindro: ";
+        cin >> c_rad;
+    
+        cout << "Entre la altura del cilindro: ";
+        cin >> height;
+    
+        cout << "El área del cilindro es: " << setprecision (3) << area (c_rad, height);
+    }
+
+    if ((first_choice = 'B' || first_choice == 'b') && (sec_choice == 'B' || sec_choice == 'b')) {
+
+        
     }
 
     return 0;
@@ -132,3 +167,19 @@ double volume (double width, double length, double height) {
     vol = width * length * height;
     return vol;
 }
+
+
+
+// área 
+
+// cilindro
+
+double area (double c_rad, double height) {
+    double ar;
+    ar = (2.0 * pi * c_rad * height) + (2 * pi * (pow (c_rad, 2)));
+    return ar;
+}
+
+// esfera
+
+// prisma rectangular 
