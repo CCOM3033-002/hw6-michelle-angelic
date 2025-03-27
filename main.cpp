@@ -70,7 +70,7 @@ int main() {
 
     // take user input
 
-    if (first_choice = 'A' && sec_choice = 'A') {
+    if ((first_choice = 'A' || first_choice == 'a') && (sec_choice == 'A' || sec_choice == 'a')) {
         double rad, c_height;
         cout << "Entre el radio del cilindro: ";
         cin >> rad;
@@ -81,14 +81,14 @@ int main() {
         cout << "El volumen del cilindro es: " << setprecision (3) << volume (rad, c_height);
     }
  
-    if (first_choice = 'B' && sec_choice = 'A') {
+    if ((first_choice == 'B'|| first_choice == 'b') && (sec_choice == 'A' || sec_choice == 'a')) {
         cout << "Entre el radio de la esfera: ";
         double s_rad;
         cin >> s_rad;
         cout << "El volumen de la esfera es: " << setprecision (3) << volume (s_rad);
     }
     
-    if (first_choice = 'C' && sec_choice = 'A') {
+    if (first_choice = 'C' || first_choice == 'c') && (sec_choice == 'A' || sec_choice == 'a')) {
         double width, length, height;
         cout << "Entre el largo: ";
         cin >> length;
