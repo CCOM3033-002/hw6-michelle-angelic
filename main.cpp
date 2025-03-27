@@ -1,6 +1,5 @@
 // Michelle A. Santiago 
 // Figuras 3D
-// Colaboraciones: 
 
 
 #include <iostream>
@@ -35,6 +34,10 @@ double area (double, double);
 // esfera 
 
 double area (double);
+
+// prisma rectangular
+
+double area (double, double, double);
 
 
 int main() {
@@ -146,6 +149,21 @@ int main() {
         
     }
 
+    if ((first_choice = 'C' || first_choice == 'c') && (sec_choice == 'B' || sec_choice == 'b')) {
+        double length, width, height;
+    
+        cout << "Entre el largo: ";
+        cin >> length;
+        
+        cout << "Entre el ancho: ";
+        cin >> width;
+        
+        cout << "Entre la altura: ";
+        cin >> height;
+        
+        cout << "El área del prisma rectangular es: " << setprecision (3) << area (length, width, height);
+    }
+
     return 0;
 }
 
@@ -198,3 +216,9 @@ double area (double s_rad) {
 }
 
 // prisma rectangular 
+
+double area (double length, double width, double height) {
+    double ar;
+    ar = 2.0 * ((width * length) + (height * length) + (height * width));
+    return ar;
+}
