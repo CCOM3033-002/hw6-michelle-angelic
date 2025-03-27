@@ -111,6 +111,8 @@ int main() {
         cout << endl;
         
         cout << "El volumen del cilindro es: " << setprecision (3) << volume (rad, c_height);
+
+        exit (0);
     }
  
     if ((first_choice == 'B'|| first_choice == 'b') && (sec_choice == 'A' || sec_choice == 'a')) {
@@ -121,6 +123,8 @@ int main() {
         cout << endl;
 
         cout << "El volumen de la esfera es: " << setprecision (3) << volume (s_rad);
+
+        exit(0);
     }
     
     if ((first_choice = 'C' || first_choice == 'c') && (sec_choice == 'A' || sec_choice == 'a')) {
@@ -141,6 +145,8 @@ int main() {
         cout << endl;
     
         cout << "El volumen del prisma rectangular es: " << setprecision (3) << volume (width, length, height);
+
+        exit(0);
     }
 
 
@@ -158,6 +164,8 @@ int main() {
         cout << endl;
     
         cout << "El área del cilindro es: " << setprecision (3) << area (c_rad, height);
+
+        exit (0);
     }
 
     if ((first_choice = 'B' || first_choice == 'b') && (sec_choice == 'B' || sec_choice == 'b')) {
@@ -169,7 +177,8 @@ int main() {
         cout << endl;
     
         cout << "El área de la esfera es: " << setprecision (3) << area (s_rad);
-        
+
+        exit(0);
     }
 
     if ((first_choice = 'C' || first_choice == 'c') && (sec_choice == 'B' || sec_choice == 'b')) {
@@ -191,6 +200,8 @@ int main() {
         cout << endl;
         
         cout << "El área del prisma rectangular es: " << setprecision (3) << area (length, width, height);
+
+        exit (0);
     }
 
     return 0;
