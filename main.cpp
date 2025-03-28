@@ -173,28 +173,28 @@ int main() {
 }
 
 double getrad() {
-    cout << "Entre el radio: ";
+    cout << "Entre el radio. ";
     double rad;
     rad = getvalue();
     return rad;
 }
 
 double getwidth() {
-    cout << "Entre el ancho: ";
+    cout << "Entre el ancho. ";
     double width;
     width = getvalue();
     return width;
 }
 
 double getheight() {
-    cout << "Entre la altura: ";
+    cout << "Entre la altura. ";
     double height;
     height = getvalue();
     return height;
 }
 
 double getlength() {
-    cout << "Entre el largo: ";
+    cout << "Entre el largo. ";
     double length;
     length = getvalue();
     return length;
