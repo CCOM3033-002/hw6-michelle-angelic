@@ -29,6 +29,7 @@ double getwidth(); // ancho
 double getheight(); // altura 
 double getlength(); // largo
 
+double getvalue();
 
 int main() {
 
@@ -202,6 +203,7 @@ double getlength() {
 double getvalue() {
     double value;
     do {
+        cout << endl;
         cout << "No puede ingresar valores negativos.\n";
         cin >> value;
     } while (value < 0);
