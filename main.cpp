@@ -1,5 +1,5 @@
 // Michelle A. Santiago
-// Colaboraciones: 
+// Colaboraciones: Gabriela Guzmán
 
 #include <iostream>
 #include <iomanip>
@@ -47,12 +47,13 @@ int main() {
         cout << " a. Cilindro\n b. Esfera\n c. Prisma rectangular\n";
         cout << "Selección: ";
         cin >> figure_choice;
-        
-        // cambiar el input a ascii 
-        
-        
-    } while ((figure_choice >= 65 && figure_choice <= 67) || (figure_choice >= 97 && figure_choice <= 99));
+    } while ((figure_choice < 65 || figure_choice > 67) && (figure_choice < 97 || figure_choice > 99));
     
+
+    if (figure_choice >= 65 && figure_choice <= 67) {
+        figure_choice += 32;
+    }
+
     switch (figure_choice)
     {
         case 'a':
@@ -119,7 +120,7 @@ int main() {
                 
         case 3: 
             {
-                 double width_3 = getwidth();
+                double width_3 = getwidth();
                 double length_3 = getlength();
                 double height_3 = getheight();
                 double vol_3;
@@ -173,29 +174,38 @@ int main() {
 double getrad() {
     cout << "Entre el radio: ";
     double rad;
-    cin >> rad;
+    rad = getvalue();
     return rad;
 }
 
 double getwidth() {
     cout << "Entre el ancho: ";
     double width;
-    cin >> width;
+    width = getvalue();
     return width;
 }
 
 double getheight() {
     cout << "Entre la altura: ";
     double height;
-    cin >> height;
+    height = getvalue();
     return height;
 }
 
 double getlength() {
     cout << "Entre el largo: ";
     double length;
-    cin >> length;
+    length = getvalue();
     return length;
+}
+
+double getvalue() {
+    double value;
+    do {
+        cout << "No puede ingresar valores negativos.\n";
+        cin >> value;
+    } while (value < 0);
+    return value;
 }
 
 // funciones 
