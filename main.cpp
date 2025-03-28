@@ -1,10 +1,17 @@
 // Michelle A. Santiago
 // Colaboraciones: Gabriela Guzmán
+// Me ayudó en el input validation de los menús, y 
+// de construir una función para revisar si los valores eran negativos
+
+// La profesora fue quién me dirigió que debería hacer los prototipos de buscar los datos
+// También fue quién me enseñó lo de "option" en el código
 
 #include <iostream>
 #include <iomanip>
 #include <cmath>
 using namespace std;
+
+// constante de pi
 
 const double pi = 3.14159265358979323846; 
 
@@ -29,7 +36,22 @@ double getwidth(); // ancho
 double getheight(); // altura 
 double getlength(); // largo
 
-double getvalue();
+double getvalue(); // para revisar que números no sean negativos
+
+// nota sobre organización de las opciones:
+
+/*para la mecánica de decisiones, para cada opción sobre la figura que el usuario eligiera, 
+se iba a almacenar en una variable (option) un valor correspondiente. luego, basado en la operación,
+se le sumaría 0, en el caso que desearan calcular en volumen, y 3 si quisieran buscar el área.
+basado en la suma resultante, los casos del switch corresponden para cada uno. 
+la leyenda es la siguente:
+    Figura:                 |       Operación           |       Opciones resultantes
+    1 - Cilindro            |   +0 - Calcular volúmen   |       Calcular volúmenes  - 1, 2, 3
+    2 - Esfera              |   +3 - Calcular área      |       Calcular áreas - 4, 5, 6 
+    3 - Prisma rectangular  |                           |
+*/  
+
+
 
 int main() {
 
@@ -48,8 +70,13 @@ int main() {
         cout << " a. Cilindro\n b. Esfera\n c. Prisma rectangular\n";
         cout << "Selección: ";
         cin >> figure_choice;
+
+        // para revisar que las letras ingresadas estén dentro del rango provisto
+
     } while ((figure_choice < 65 || figure_choice > 67) && (figure_choice < 97 || figure_choice > 99));
     
+    // esto es para hacer las mayúsculas minúsculas
+    // así reduzco el switch 
 
     if (figure_choice >= 65 && figure_choice <= 67) {
         figure_choice += 32;
@@ -57,48 +84,53 @@ int main() {
 
     switch (figure_choice)
     {
-        case 'a':
-        case 'A': cout << "Escogió el cilindro.\n";
+        
+        case 'a': cout << "Escogió el cilindro.\n";
                 option = 1;
                 break;
-        case 'b':
-        case 'B': cout << "Escogió la esfera.\n";
+        
+        case 'b': cout << "Escogió la esfera.\n";
                 option = 2;
                 break;
-        case 'c':
-        case 'C': cout << "Escogió el prisma rectangular.\n";
+        
+        case 'c': cout << "Escogió el prisma rectangular.\n";
                 option = 3;
                 break;
-        default: cout << "No entraste A, B, o C!\n";
     }
 
     cout << endl;
 
-    // hacer segundo menu
+    // second menu - basically the same code as the previous menu just with changes in cout
 
     char measure_choice;
+
+    do {
+        cout << "Escoja entre los siguientes opciones: \n";
+        cout << " a. Volumen\n b. Área de la superficie\n";
+        cout << "Selección: ";
+        cin >> measure_choice;
+
+    } while ((figure_choice < 65 || figure_choice > 66) && (figure_choice < 97 || figure_choice > 98));
     
-    cout << "Escoja entre los siguientes opciones: \n";
-    cout << " a. Volumen\n b. Área de la superficie\n";
-    cout << "Selección: ";
-    cin >> measure_choice;
+    if (measure_choice >= 65 && measure_choice <= 67) {
+        measure_choice += 32;
+    }
     
     switch (measure_choice) {
         
-        case 'a':
-        case 'A': cout << "Escogió calcular el volumen.\n";
+        case 'a': cout << "Escogió calcular el volumen.\n";
                 break;
-        case 'b':
-        case 'B': cout << "Escogió calcular el área de la superficie.\n";
+        
+        case 'b': cout << "Escogió calcular el área de la superficie.\n";
                 option += 3;
                 break;
-                
-        default: "No entraste A o B!\n";
     }
+
+    // the options of which operation you can do
     
     switch (option) {
         
-        case 1: 
+        case 1: // calculating the volume of a cylinder 
             {
                 double radio = getrad();
                 double altura = getheight();
@@ -109,7 +141,7 @@ int main() {
                 break;
             }
                 
-        case 2: 
+        case 2: // calculating the volume of a sphere
             {
                 double radio_2 = getrad();
                 double vol_2;
@@ -119,7 +151,7 @@ int main() {
                 break;
             }
                 
-        case 3: 
+        case 3: // calculating the volume of a rectangular prism
             {
                 double width_3 = getwidth();
                 double length_3 = getlength();
@@ -131,7 +163,7 @@ int main() {
                 break;
             }
                 
-        case 4: 
+        case 4: // calculating the area of a cylinder 
             {
                 double radio_4 = getrad();
                 double altura_4 = getheight();
@@ -142,7 +174,7 @@ int main() {
                 break;
             }
         
-        case 5: 
+        case 5: // calculating the area of a sphere 
             {
                 double radio_5 = getrad();
                 double ar_5;
@@ -152,7 +184,7 @@ int main() {
                 break;
             }
                 
-        case 6:
+        case 6: // calculating the area of a rectangular prism
             {
                 double largo_6 = getlength();
                 double ancho_6 = getwidth();
@@ -163,15 +195,15 @@ int main() {
                 cout << endl;
                 break;
             }
-                
-        
     }
-    
     cout << endl;
-    
     return 0;
 }
 
+// estas funciones son para obtener los valores necesarios para llevar a cabo las operaciones
+// con getvalue, reviso que no sean negativos antes de pasar a hacer cualquier operación
+
+// radio 
 double getrad() {
     cout << "Entre el radio. ";
     double rad;
@@ -179,6 +211,7 @@ double getrad() {
     return rad;
 }
 
+// ancho
 double getwidth() {
     cout << "Entre el ancho. ";
     double width;
@@ -186,6 +219,7 @@ double getwidth() {
     return width;
 }
 
+// altura 
 double getheight() {
     cout << "Entre la altura. ";
     double height;
@@ -193,12 +227,17 @@ double getheight() {
     return height;
 }
 
+// largo
 double getlength() {
     cout << "Entre el largo. ";
     double length;
     length = getvalue();
     return length;
 }
+
+// esta función en particular la hice para revisar que los valores no fuesen negativos
+// así me evito tener que poner un loop en main
+// esta idea me la dio gabriela!
 
 double getvalue() {
     double value;
@@ -210,9 +249,7 @@ double getvalue() {
     return value;
 }
 
-// funciones 
-
-// volúmenes 
+// estas funciones son para calcular los volúmenes de cada figura
 
 // cilindro
 
@@ -240,7 +277,7 @@ double volume (double width, double length, double height) {
 
 
 
-// área 
+// estas funciones son para calcular el área de cada figura 
 
 // cilindro
 
